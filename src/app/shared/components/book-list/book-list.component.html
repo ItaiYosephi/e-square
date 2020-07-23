@@ -1,0 +1,7 @@
+<ng-container *ngFor="let b of books; trackBy: trackById">
+  <app-book-item
+    class="book"
+    [book]="b"
+    (click)="openDialog(b)"
+  ></app-book-item>
+</ng-container>

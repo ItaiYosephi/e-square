@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>
+    <h2>
+      Welcome
+    </h2>
+  </mat-card-title>
+  <form [formGroup]="userForm" (ngSumbit)="login()">
+    <mat-form-field class="username-field">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" appAutofocus />
+
+      <mat-error *ngIf="usernameCtrl.hasError('required') && usernameCtrl.touched">
+      Username is <strong>required</strong>
+    </mat-error>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-button [disabled]="userForm.invalid" (click)="login()">
+        Login
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

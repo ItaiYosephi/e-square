@@ -1,0 +1,25 @@
+
+.book-details-dialog {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .wishlist-icon {
+      margin-left: auto;
+      cursor: pointer;
+      color: gray;
+      &.wishlisted {
+        color:#de0136;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+
+    &--info {
+      margin-left: 10px;
+      max-width: 400px;
+    }
+  }
+}

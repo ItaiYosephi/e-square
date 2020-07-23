@@ -1,0 +1,37 @@
+.app-content {
+  height: calc(100vh - 74px);
+  padding: 5px;
+
+}
+
+
+.app-sidenav {
+  min-width: 200px;
+}
+
+.app-toolbar-filler {
+  flex: 1 1 auto;
+}
+
+
+
+.app-menu-button {
+  padding: 0;
+  min-width: 50px;
+}
+.app-button {
+  margin: 5px;
+}
+
+
+
+
+
+
+
+
+a {
+  display: flex;
+  text-decoration: none;
+}
+

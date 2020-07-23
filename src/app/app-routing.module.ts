@@ -1,11 +1,33 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'welcome',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'search',
+    loadChildren: () =>
+      import('./search/search.module').then((m) => m.SearchModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () =>
+      import('./wishlist/wishlist.module').then((m) => m.WishlistModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    redirectTo: 'search',
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,0 +1,9 @@
+<div class="book-item__img-container">
+  <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="" />
+</div>
+<div class="book-item__details">
+  <h3>{{ book.volumeInfo.title }}</h3>
+  <p>by {{ book.volumeInfo.authors?.join(", ") }} | {{book.volumeInfo.publishedDate | date}}</p>
+</div>
+
+

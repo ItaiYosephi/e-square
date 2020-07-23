@@ -1,0 +1,31 @@
+<mat-form-field appearance="outline" class="search-bar">
+  <!-- <mat-label>Search books..</mat-label> -->
+
+  <mat-icon matPrefix>search</mat-icon>
+  <input
+    matInput
+    placeholder="Moby Dick"
+    appAutofocus
+    [formControl]="searchTermCtrl"/>
+</mat-form-field>
+
+<mat-card>
+  <mat-card-content>
+    <ng-container *ngIf="books$ | async as books">
+      <mat-paginator
+        [length]="books.total"
+        [pageSize]="books.perPage"
+        [pageIndex]="books.currentPage - 1"
+        (page)="onPageChange($event)">
+      </mat-paginator>
+      <div class="content">
+        <app-spinner *ngIf="isLoading$ | async"></app-spinner>
+
+        <div class="list" *ngIf="books.data.length">
+          <app-book-list [books]="books.data"></app-book-list>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+
+</mat-card>
